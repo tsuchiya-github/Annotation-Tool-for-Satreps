@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Image_database;
+use App\Satreps_image_database;
 use App\Object_name;
 use Illuminate\Http\Request;
 use \App\Ages;
@@ -22,7 +22,7 @@ class PagesController extends Controller
         $object_type = $request->object_type;
         $count = 1;
 
-        $objects = Image_database::where('image_type', $object_type)->orderByRaw('RAND()')->simplePaginate(1); //pagenateするとtake(3)が無視される
+        $objects = Satreps_image_database::where('image_type', $object_type)->orderByRaw('RAND()')->simplePaginate(1); //pagenateするとtake(3)が無視される
         $object_name = Object_name::all();
         $type_of_image = Type_of_image::all();
         $factors = Factors::all();
